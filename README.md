@@ -16,7 +16,7 @@
 
 ```bash
 git clone https://github.com/danmm16/REU-2025-summer.git
-cd path/to/your/REU-2025-summer
+cd path/to/your/REU-2025-summer/June\ 27/
 ```
 
 #### Option C: Manual Download
