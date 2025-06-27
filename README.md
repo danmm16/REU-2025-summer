@@ -2,7 +2,34 @@
 
 ## June 27th -- Duffing Oscillator Analysis
 
-### Required Python Packages
+### FIRST: Get the Code Files
+
+#### Option A: Download from Repository (Recommended)
+
+1. **Go to the repository URL** (provided by your instructor)
+2. **Click the green "Code" button**
+3. **Select "Download ZIP"**
+4. **Extract/unzip the downloaded file** to a folder on your computer
+5. **Navigate to the extracted folder** - you should see files like `duffing_ode.py`
+
+#### Option B: Clone with Git (If you have Git installed)
+
+```bash
+git clone [repository-url-provided-by-instructor]
+cd [repository-folder-name]
+```
+
+#### Option C: Manual Download
+
+If files are provided individually:
+1. **Create a new folder** for this project (e.g., "duffing_analysis")
+2. **Save each file** in this folder:
+   - `duffing_ode.py`
+   - `duffing_solution.py` 
+   - `duffing_ode.md`
+   - `duffing_solution.md`
+
+### NEXT: Get Required Python Packages
 
 Before running the Duffing oscillator code, you need to install the following packages. These are not included with Python by default:
 
@@ -27,7 +54,7 @@ pip install numpy scipy matplotlib
 - **SciPy**: Scientific computing (we use it for solving differential equations)
 - **Matplotlib**: Creating plots and graphs
 
-### File Organization
+### THEN: File Organization
 
 Create a new folder for this project and save these files:
 
@@ -36,7 +63,7 @@ Create a new folder for this project and save these files:
 3. `duffing_ode.md` - Background theory and explanations
 4. `duffing_solution.md` - Detailed mathematical documentation
 
-### How to Run the Code
+### FINALLY: (How to) Run the Code
 
 #### Option 1: Command Line
 1. Open command prompt/terminal
@@ -53,7 +80,7 @@ Create a new folder for this project and save these files:
 2. Create new notebook
 3. Copy and paste code sections as needed
 
-### What You Should See
+### POST: What You Should See
 
 When you run `duffing_ode.py`, you should see:
 
@@ -67,7 +94,7 @@ When you run `duffing_ode.py`, you should see:
    - First window: 6 subplots showing time series and power spectra
    - Second window: Phase portraits comparison
 
-### Troubleshooting Common Issues
+### ERRORS: Troubleshooting Common Issues
 
 #### Problem: "ModuleNotFoundError"
 **Solution:** Install the missing package using pip:
@@ -92,7 +119,7 @@ pip install [package_name]
 - Add `--user` flag: `pip install --user numpy scipy matplotlib`
 - On Mac/Linux, try `sudo pip install` (use with caution)
 
-### Understanding the Code Structure
+### FORMAT: Understanding the Code Structure
 
 #### Main Components:
 
@@ -109,7 +136,7 @@ t_span = (0, 20)            # Time range
 t_eval = np.linspace(0, 20, 4000)  # Time resolution
 ```
 
-### Learning Exercises
+### AFTERWARD: Learning Exercises
 
 #### Beginner Level:
 1. Run the code as-is and observe the outputs
@@ -126,7 +153,7 @@ t_eval = np.linspace(0, 20, 4000)  # Time resolution
 2. Implement different initial conditions
 3. Create additional analysis plots
 
-### Getting Help
+### TIPS: Getting Help
 
 If you encounter issues:
 
@@ -139,7 +166,7 @@ If you encounter issues:
    - SciPy documentation: https://scipy.org/
    - Matplotlib documentation: https://matplotlib.org/
 
-### Notes for Instructor and TAs
+### (FOR FUTURE USE:) Notes for Instructor and TAs
 
 - Students should run `duffing_ode.py` first for the basic analysis
 - `duffing_solution.py` provides more comprehensive analysis
