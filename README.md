@@ -6,7 +6,7 @@
 
 #### Option A: Download from Repository (Recommended)
 
-1. **Go to the repository URL** (provided by your instructor)
+1. **Go to the repository URL** (provided by your instructor or TA)
 2. **Click the green "Code" button**
 3. **Select "Download ZIP"**
 4. **Extract/unzip the downloaded file** to a folder on your computer
@@ -15,8 +15,8 @@
 #### Option B: Clone with Git (If you have Git installed)
 
 ```bash
-git clone [repository-url-provided-by-instructor]
-cd [repository-folder-name]
+git clone https://github.com/danmm16/REU-2025-summer.git
+cd path/to/your/REU-2025-summer
 ```
 
 #### Option C: Manual Download
