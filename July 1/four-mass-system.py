@@ -331,7 +331,7 @@ Create <code>four_mass_system_config.txt</code> to set initial parameters |
 <code>q</code> / <code>Q</code> - k₁ +/- 0.5<br>
 <code>w</code> / <code>W</code> - k₂ +/- 0.5<br>
 <code>e</code> / <code>E</code> - k₃ +/- 0.5<br>
-<code>r</code> / <code>R</code> - k₄ +/- 0.5<br>
+<code>f</code> / <code>F</code> - k₄ +/- 0.5<br>
 <code>t</code> / <code>T</code> - k₅ +/- 0.5<br>
 </td>
 <td style='width: 25%; vertical-align: top;'>
