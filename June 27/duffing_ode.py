@@ -69,8 +69,8 @@ def analyze_duffing_oscillator():
     Complete analysis of the Duffing oscillator for different nonlinearity parameters
     """
     # Parameters to analyze
-    c_values = [0.5, 3.0, -3.0]
-    c_labels = ['Somewhat Nonlinear (c=0.5)', 'Strongly Nonlinear (c=3.0)', 'Softening Spring (Nonlinear c=-3.0)']
+    c_values = [0.0, 0.1, 1.0]
+    c_labels = ['Linear (c=0.0)', 'Weakly Nonlinear (c=0.1)', 'Strongly Nonlinear (c=1.0)']
     colors = ['orange', 'blue', 'green']
     
     # Time span for analysis

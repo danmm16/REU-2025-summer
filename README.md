@@ -1,6 +1,7 @@
 # REU 2025 Summer -- Python Setup Instructions and General FAQs
 
-## June 30th -- Three-Spring System Normal Modes Analysis
+## July 1st -- Four-Mass System Normal Modes Analysis (similar to below)
+## June 30th -- Three-Mass System Normal Modes Analysis
 
 ### FIRST: Get the Code Files
 

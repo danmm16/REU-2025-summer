@@ -1,28 +1,32 @@
-# Three-Spring System Configuration File
+# Four-Spring System Configuration File
 # Lines starting with # are comments and will be ignored
 # Format: parameter = value
 
 # Mass parameters (kg)
-# m1 = 0.15
-# m2 = 0.3
-# m3 = 0.15
+m1 = 0.15
+m2 = 0.3
+m3 = 0.25
+m4 = 0.15
 
 # Spring constants (N/m)
 k1 = 10.0
 k2 = 5.0
-k3 = 5.0
-k4 = 10.0
+k3 = 6.0
+k4 = 4.0
+k5 = 10.0
 
 # Initial conditions
 # Position displacements (m)
-x1_initial = 0.0
+x1_initial = 0.03
 x2_initial = 0.0
 x3_initial = 0.0
+x4_initial = 0.0
 
 # Initial velocities (m/s)
 x1dot_initial = 0.0
 x2dot_initial = 0.0
 x3dot_initial = 0.0
+x4dot_initial = 0.0
 
 # Simulation parameters
 dt = 0.01
@@ -30,7 +34,7 @@ amplitude = 0.05
 initial_mode = 0
 
 # Visual parameters
-system_length = 0.5
+system_length = 0.6
 mass_scale_factor = 0.1
 
 # Try these alternative configurations by uncommenting:
@@ -39,25 +43,42 @@ mass_scale_factor = 0.1
 # m1 = 0.2
 # m2 = 0.2
 # m3 = 0.2
+# m4 = 0.2
 # k1 = 15.0
 # k2 = 3.0
 # k3 = 8.0
-# k4 = 12.0
+# k4 = 5.0
+# k5 = 12.0
 
 # Configuration 2: Very different masses
 # m1 = 0.05
 # m2 = 0.5
 # m3 = 0.1
+# m4 = 0.4
 # k1 = 8.0
 # k2 = 6.0
 # k3 = 4.0
-# k4 = 10.0
+# k4 = 7.0
+# k5 = 10.0
 
 # Configuration 3: Weak coupling
-m1 = 0.2
-m2 = 0.2
-m3 = 0.2
+# m1 = 0.2
+# m2 = 0.2
+# m3 = 0.2
+# m4 = 0.2
 # k1 = 12.0
 # k2 = 1.0
 # k3 = 1.0
-# k4 = 12.0
+# k4 = 1.0
+# k5 = 12.0
+
+# Configuration 4: Graduated masses
+# m1 = 0.1
+# m2 = 0.2
+# m3 = 0.3
+# m4 = 0.4
+# k1 = 10.0
+# k2 = 5.0
+# k3 = 5.0
+# k4 = 5.0
+# k5 = 10.0
