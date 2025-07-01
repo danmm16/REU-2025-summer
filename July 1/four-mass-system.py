@@ -6,9 +6,9 @@ def read_config_file(filename="four_mass_system_config.txt"):
     """Read configuration parameters from a text file"""
     config = {}
     default_config = {
-        'm1': 0.15, 'm2': 0.3, 'm3': 0.25, 'm4': 0.15,
-        'k1': 10.0, 'k2': 5.0, 'k3': 6.0, 'k4': 4.0, 'k5': 10.0,
-        'x1_initial': 0.03, 'x2_initial': 0.0, 'x3_initial': 0.0, 'x4_initial': 0.0,
+        'm1': 0.25, 'm2': 0.25, 'm3': 0.25, 'm4': 0.25,
+        'k1': 6.0, 'k2': 6.0, 'k3': 6.0, 'k4': 6.0, 'k5': 6.0,
+        'x1_initial': 0.0, 'x2_initial': 0.0, 'x3_initial': 0.0, 'x4_initial': 0.0,
         'x1dot_initial': 0.0, 'x2dot_initial': 0.0, 'x3dot_initial': 0.0, 'x4dot_initial': 0.0,
         'dt': 0.01, 'amplitude': 0.05, 'initial_mode': 0,
         'system_length': 0.6, 'mass_scale_factor': 0.1
