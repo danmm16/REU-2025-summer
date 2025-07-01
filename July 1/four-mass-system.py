@@ -528,11 +528,11 @@ def keydown(evt):
         print(f"k3 = {params.k3:.1f}")
     
     # Note: 'r' is used for reset, so k4 uses different keys
-    elif evt.key == 'u':  # Changed from 'r' to 'u'
+    elif evt.key == 'f':  # Changed from 'r' to 'u'
         params.k4 += 0.5
         update_system()
         print(f"k4 = {params.k4:.1f}")
-    elif evt.key == 'U':
+    elif evt.key == 'F':
         params.k4 = max(0.1, params.k4 - 0.5)
         update_system()
         print(f"k4 = {params.k4:.1f}")
