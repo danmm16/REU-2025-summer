@@ -24,16 +24,16 @@ def calculate_order_parameter(phases):
 
 # Parameters
 N = 10  # Number of oscillators
-dt = 0.5  # Time step
-K_weak = 0.25   # Weak coupling (below critical)
-K_strong = 4.0  # Strong coupling (above critical)
+dt = 0.15  # Time step
+K_weak = 0.04   # Weak coupling (below critical)
+K_strong = 25.0  # Strong coupling (above critical)
 
 # Set up natural frequencies with some spread
 key = random.PRNGKey(123)
 omega_key, phase_key1, phase_key2 = random.split(key, 3)
 
 # Natural frequencies with moderate spread
-omega = random.normal(omega_key, (N,)) * 0.3
+omega = random.normal(omega_key, (1,)) * 0.5
 
 # Initial phases
 phases_weak = random.uniform(phase_key1, (N,), maxval=2*jnp.pi)
@@ -42,7 +42,7 @@ phases_strong = random.uniform(phase_key2, (N,), maxval=2*jnp.pi)
 # Convert to numpy for matplotlib compatibility
 phases_weak = np.array(phases_weak)
 phases_strong = np.array(phases_strong)
-omega = np.array(omega)
+omega = np.ones((N, )) * omega
 
 # Colors for each oscillator
 colors = plt.cm.tab10(np.arange(N))
