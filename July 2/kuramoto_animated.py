@@ -24,16 +24,16 @@ def calculate_order_parameter(phases):
 
 # Parameters
 N = 12  # Number of oscillators
-dt = 0.04  # Time step
-K_weak = 0.04   # Weak coupling (below critical)
-K_strong = 25.0  # Strong coupling (above critical)
+dt = 0.005  # Time step
+K_weak = 0.004   # Weak coupling (below critical)
+K_strong = 250.0  # Strong coupling (above critical)
 
 # Set up natural frequencies with some spread
 key = random.PRNGKey(123)
 omega_key, phase_key1, phase_key2 = random.split(key, 3)
 
 fixed_random = False  # Set to True for some fixed random frequencies
-frequency_spread = 2.5  # Spread of natural frequencies
+frequency_spread = 20.0  # Spread of natural frequencies
 
 if fixed_random:
     # random keys for different degrees of mixed frequencies
