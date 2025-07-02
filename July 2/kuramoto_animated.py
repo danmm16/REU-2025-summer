@@ -178,7 +178,7 @@ print("- Right panel: oscillators cluster together, order parameter is large")
 # Add legend to first subplot
 ax1.legend(bbox_to_anchor=(1.05, 1), loc='upper left', fontsize=8)
 
-anim = animation.FuncAnimation(fig, animate, frames=2000, interval=50, blit=False, repeat=True)
+anim = animation.FuncAnimation(fig, animate, frames=2000, interval=100, blit=False, repeat=True)
 
 # Add instructions
 fig.text(0.5, 0.95, 'Red arrows show order parameter (synchronization strength)', 
