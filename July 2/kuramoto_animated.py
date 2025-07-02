@@ -23,8 +23,8 @@ def calculate_order_parameter(phases):
     return jnp.abs(z), jnp.angle(z)  # Magnitude and average phase
 
 # Parameters
-N = 10  # Number of oscillators
-dt = 0.15  # Time step
+N = 8  # Number of oscillators
+dt = 0.075  # Time step
 K_weak = 0.04   # Weak coupling (below critical)
 K_strong = 25.0  # Strong coupling (above critical)
 
@@ -32,8 +32,26 @@ K_strong = 25.0  # Strong coupling (above critical)
 key = random.PRNGKey(123)
 omega_key, phase_key1, phase_key2 = random.split(key, 3)
 
-# Natural frequencies with moderate spread
-omega = random.normal(omega_key, (N,)) * 0.5
+fixed_random = False  # Set to True for some fixed random frequencies
+
+if fixed_random:
+    # random keys for different degrees of mixed frequencies
+    key1, key2, key3 = random.split(omega_key, 3)
+
+    # Create base frequency distribution
+    omega = random.normal(key1, (N,)) * 0.5
+
+    # Choose which oscillators will share a frequency (N//3 oscillators)
+    group_indices = random.choice(key2, N, (N//3,), replace=False)
+
+    # Generate a shared frequency for the group
+    shared_freq = random.normal(key3, ()) * 0.5
+
+    # Assign the shared frequency to group members
+    omega = omega.at[group_indices].set(shared_freq)
+else:
+    # Natural frequencies with moderate spread
+    omega = random.normal(omega_key, (N,)) * 0.5
 
 # Initial phases
 phases_weak = random.uniform(phase_key1, (N,), maxval=2*jnp.pi)
