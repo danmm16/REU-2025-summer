@@ -24,7 +24,7 @@ def calculate_order_parameter(phases):
 
 # Parameters
 N = 8  # Number of oscillators
-dt = 0.075  # Time step
+dt = 0.1  # Time step
 K_weak = 0.04   # Weak coupling (below critical)
 K_strong = 25.0  # Strong coupling (above critical)
 
