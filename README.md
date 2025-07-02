@@ -79,21 +79,26 @@ pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases
 
 Create a new folder for this project and save these files:
 
-1. `kuramoto_6_bodies.py` - Educational 6-oscillator visualization
-2. `kuramoto_bifurcation.py` - Comprehensive bifurcation analysis
-3. `kuramoto_model_guide.md` - Theoretical background and explanations
+1. `kuramoto.py` - Educational 6-oscillator visualization
+2. `bifurcation.py` - Comprehensive bifurcation analysis
+3. `kuramoto_animated.py` - 12-oscillator demonstraion, animated
+4. `kuramoto.md` - Theoretical background and explanations
 
 ### FINALLY: (How to) Run the Code
 
 #### Starting with the Basics
-**Run the 6-oscillator version first:**
+**Run the 6-oscillator version first and 12-oscillator animated version next:**
 ```bash
-python kuramoto_6_bodies.py
+python kuramoto.py
+```
+
+```bash
+python kuramoto_animated.py
 ```
 
 **Then explore the bifurcation analysis:**
 ```bash
-python kuramoto_bifurcation.py
+python bifurcation.py
 ```
 
 #### Option 1: Command Line
