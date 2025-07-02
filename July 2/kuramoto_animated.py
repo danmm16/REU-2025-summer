@@ -23,8 +23,8 @@ def calculate_order_parameter(phases):
     return jnp.abs(z), jnp.angle(z)  # Magnitude and average phase
 
 # Parameters
-N = 8  # Number of oscillators
-dt = 0.1  # Time step
+N = 12  # Number of oscillators
+dt = 0.04  # Time step
 K_weak = 0.04   # Weak coupling (below critical)
 K_strong = 25.0  # Strong coupling (above critical)
 
@@ -33,25 +33,26 @@ key = random.PRNGKey(123)
 omega_key, phase_key1, phase_key2 = random.split(key, 3)
 
 fixed_random = False  # Set to True for some fixed random frequencies
+frequency_spread = 2.5  # Spread of natural frequencies
 
 if fixed_random:
     # random keys for different degrees of mixed frequencies
     key1, key2, key3 = random.split(omega_key, 3)
 
     # Create base frequency distribution
-    omega = random.normal(key1, (N,)) * 0.5
+    omega = random.normal(key1, (N,)) * frequency_spread
 
     # Choose which oscillators will share a frequency (N//3 oscillators)
     group_indices = random.choice(key2, N, (N//3,), replace=False)
 
     # Generate a shared frequency for the group
-    shared_freq = random.normal(key3, ()) * 0.5
+    shared_freq = random.normal(key3, ()) * frequency_spread
 
     # Assign the shared frequency to group members
     omega = omega.at[group_indices].set(shared_freq)
 else:
     # Natural frequencies with moderate spread
-    omega = random.normal(omega_key, (N,)) * 0.5
+    omega = random.normal(omega_key, (N,)) * frequency_spread
 
 # Initial phases
 phases_weak = random.uniform(phase_key1, (N,), maxval=2*jnp.pi)
@@ -63,7 +64,7 @@ phases_strong = np.array(phases_strong)
 omega = np.array(omega)
 
 # Colors for each oscillator
-colors = plt.cm.tab10(np.arange(N))
+colors = plt.cm.tab20(np.arange(N))
 
 # Set up the figure and axes
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))

@@ -289,7 +289,7 @@ Understanding the Kuramoto model provides insight into:
 **Best for**: Understanding basic concepts and static relationships
 
 ### `kuramoto_animated.py`
-**Purpose**: Dynamic real-time animation of 8 coupled oscillators
+**Purpose**: Dynamic real-time animation of 12 coupled oscillators
 **Key Features**:
 - **Real-time animation** showing oscillators moving around unit circle
 - **Live synchronization demonstration** - watch phase-locking happen
