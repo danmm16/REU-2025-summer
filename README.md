@@ -1,5 +1,360 @@
 # REU 2025 Summer -- Python Setup Instructions and General FAQs
 
+## July 2nd -- Kuramoto Model: Collective Synchronization Analysis
+## July 1st -- Four-Mass System Normal Modes Analysis (similar to below)
+## June 30th -- Three-Mass System Normal Modes Analysis
+
+---
+
+## July 2nd -- Kuramoto Model: Collective Synchronization Analysis
+
+### FIRST: Get the Code Files
+
+#### Option A: Download from Repository (Recommended)
+
+1. **Go to the repository URL** (provided by your instructor or TA)
+2. **Click the green "Code" button**
+3. **Select "Download ZIP"**
+4. **Extract/unzip the downloaded file** to a folder on your computer
+5. **Navigate to the extracted folder** - you should see files like `kuramoto_6_bodies.py`
+
+#### Option B: Clone with Git (If you have Git installed)
+
+```bash
+git clone https://github.com/danmm16/REU-2025-summer.git
+cd path/to/your/REU-2025-summer/July\ 2/
+```
+
+#### Option C: Manual Download
+
+If files are provided individually:
+1. **Create a new folder** for this project (e.g., "kuramoto_analysis")
+2. **Save each file** in this folder:
+   - `kuramoto.py`
+   - `bifurcation.py`
+   - `kuramoto.md`
+
+### NEXT: Get Required Python Packages
+
+Before running the Kuramoto model code, you need to install the following packages:
+
+#### Installation Commands
+
+Open your command prompt/terminal and run these commands one by one:
+
+```bash
+pip install jax
+pip install jaxlib
+pip install matplotlib
+pip install numpy
+```
+
+**Alternative (install all at once):**
+```bash
+pip install jax jaxlib matplotlib numpy
+```
+
+#### Package Purposes
+
+- **JAX**: High-performance numerical computing with automatic differentiation
+- **JAXlib**: JAX's supporting library for linear algebra operations
+- **Matplotlib**: Creating plots and visualizations
+- **NumPy**: Mathematical operations and arrays (used by JAX)
+
+#### JAX Installation Notes
+
+JAX provides significant performance improvements for numerical computations. If you encounter issues with JAX installation:
+
+**Alternative (CPU-only JAX):**
+```bash
+pip install --upgrade "jax[cpu]"
+```
+
+**For GPU support (advanced users):**
+```bash
+pip install --upgrade "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+```
+
+### THEN: File Organization
+
+Create a new folder for this project and save these files:
+
+1. `kuramoto_6_bodies.py` - Educational 6-oscillator visualization
+2. `kuramoto_bifurcation.py` - Comprehensive bifurcation analysis
+3. `kuramoto_model_guide.md` - Theoretical background and explanations
+
+### FINALLY: (How to) Run the Code
+
+#### Starting with the Basics
+**Run the 6-oscillator version first:**
+```bash
+python kuramoto_6_bodies.py
+```
+
+**Then explore the bifurcation analysis:**
+```bash
+python kuramoto_bifurcation.py
+```
+
+#### Option 1: Command Line
+1. Open command prompt/terminal
+2. Navigate to your project folder: `cd path/to/your/folder`
+3. Run: `python kuramoto_6_bodies.py`
+
+#### Option 2: Python IDE (Recommended)
+1. Open your Python IDE (IDLE, PyCharm, VS Code, etc.)
+2. Open `kuramoto_6_bodies.py` first
+3. Click "Run" or press F5
+
+### POST: What You Should See
+
+#### From `kuramoto_6_bodies.py`:
+1. **Plot window** with two subplots:
+   - Left: Non-synchronized oscillators randomly distributed on unit circle
+   - Right: Synchronized oscillators clustered together
+   - Each oscillator numbered and color-coded
+   - Red arrows showing order parameter (synchronization strength)
+
+2. **Console output** showing:
+   - Individual oscillator phases
+   - Order parameter values
+   - Synchronization comparison
+
+#### From `kuramoto_bifurcation.py`:
+1. **Progress messages** in console during computation
+2. **Comprehensive plot window** with four panels:
+   - Main bifurcation diagram (order parameter vs coupling strength)
+   - Critical region zoom
+   - Phase snapshots at different coupling strengths
+3. **Statistical summary** showing:
+   - Theoretical vs empirical critical coupling
+   - System parameters and final order parameters
+
+### PHYSICS: Understanding the Kuramoto Model
+
+#### What You'll Observe:
+
+1. **6-Oscillator System**:
+   - **Non-synchronized**: Oscillators spread randomly around circle (low order parameter)
+   - **Synchronized**: Oscillators cluster together (high order parameter)
+   - **Individual tracking**: Each oscillator labeled and color-coded
+
+2. **Bifurcation Analysis**:
+   - **Below K_c**: Incoherent state (r ≈ 0)
+   - **At K_c**: Critical transition point where synchronization emerges
+   - **Above K_c**: Synchronized state (r approaches 1)
+
+#### Key Concepts:
+
+- **Order Parameter (r)**: Measures synchronization strength (0 = no sync, 1 = perfect sync)
+- **Coupling Strength (K)**: How strongly oscillators influence each other
+- **Critical Coupling (K_c)**: Threshold where synchronization transition occurs
+- **Phase Transition**: Sudden change from disorder to order
+- **Natural Frequencies**: Individual oscillator frequencies without coupling
+
+### ERRORS: Troubleshooting Common Issues
+
+#### Problem: "ModuleNotFoundError: No module named 'jax'"
+**Solution:** Install JAX:
+```bash
+pip install jax jaxlib
+```
+
+#### Problem: JAX installation fails
+**Solutions:**
+- Try CPU-only version: `pip install --upgrade "jax[cpu]"`
+- On Windows, make sure you have Visual Studio Build Tools
+- Try conda instead: `conda install -c conda-forge jax`
+
+#### Problem: "jax.config.update" not working
+**Solution:** Your JAX version might be old. Update it:
+```bash
+pip install --upgrade jax jaxlib
+```
+
+#### Problem: Plots appear but are empty/blank
+**Solutions:**
+- Check if matplotlib backend is properly configured
+- Try adding `plt.ion()` at the beginning of the script
+- Ensure you're not running in a headless environment
+
+#### Problem: Bifurcation analysis runs very slowly
+**Solutions:**
+- JAX should provide significant speedup - ensure it's properly installed
+- Reduce `n_realizations` from 20 to 10 for faster computation
+- Reduce `K_values` array size for quicker exploration
+
+#### Problem: "Permission denied" when installing packages
+**Solutions:**
+- Add `--user` flag: `pip install --user jax jaxlib matplotlib`
+- On Mac/Linux, try `sudo pip install` (use with caution)
+- Consider using virtual environments
+
+### FORMAT: Understanding the Code Structure
+
+#### `kuramoto_6_bodies.py` Components:
+
+1. **Parameter Setup**: 
+   - Number of oscillators (6)
+   - Natural frequency distributions
+   - Initial phase configurations
+
+2. **Physics Calculation**:
+   - Order parameter computation
+   - Complex synchronization measure
+   - Individual oscillator tracking
+
+3. **Visualization**:
+   - Unit circle representation
+   - Color-coded oscillators
+   - Order parameter vectors
+
+#### `kuramoto_bifurcation.py` Components:
+
+1. **Simulation Engine**:
+   - `kuramoto_step()` - Single integration step
+   - `simulate_kuramoto()` - Full system evolution
+   - JAX optimization for performance
+
+2. **Bifurcation Analysis**:
+   - Systematic coupling strength variation
+   - Multiple realizations for statistical averaging
+   - Critical point identification
+
+3. **Comprehensive Visualization**:
+   - Main bifurcation diagram
+   - Critical region zoom
+   - Representative phase snapshots
+
+#### Key Parameters You Can Modify:
+
+```python
+# In kuramoto_6_bodies.py:
+n_oscillator = 6              # Number of oscillators
+frequency_spread = 0.5        # Natural frequency diversity
+
+# In kuramoto_bifurcation.py:
+N = 50                        # Number of oscillators
+n_realizations = 20           # Statistical averaging
+K_values = np.linspace(0, 4, 80)  # Coupling strength range
+```
+
+### AFTERWARD: Learning Exercises
+
+#### Beginner Level:
+1. Run both scripts and observe the different visualizations
+2. In 6-oscillator code, try changing `n_oscillator` to 3, 4, or 8
+3. Compare synchronized vs non-synchronized cases
+
+#### Intermediate Level:
+1. Modify the frequency distributions in `kuramoto_6_bodies.py`:
+   ```python
+   # Try uniform distribution
+   omega = np.random.uniform(-1, 1, N)
+   
+   # Try all identical frequencies
+   omega = np.zeros(N)
+   ```
+
+2. In bifurcation analysis, change the number of oscillators:
+   ```python
+   N = 20  # Smaller system
+   N = 100 # Larger system
+   ```
+
+3. Adjust the coupling strength range to focus on critical region:
+   ```python
+   K_values = np.linspace(0.5, 3.0, 100)
+   ```
+
+#### Advanced Level:
+1. **Add damping** to the Kuramoto equation
+2. **Implement different network topologies** (not all-to-all coupling)
+3. **Study finite-size effects** by varying system size
+4. **Create time-dependent coupling** K(t)
+5. **Analyze correlation functions** and relaxation times
+
+### PHYSICS INSIGHTS: What to Look For
+
+#### System Behavior:
+- **Frequency Diversity Effects**: How spread in natural frequencies affects critical coupling
+- **Finite Size Effects**: How system size influences the transition sharpness
+- **Statistical Fluctuations**: Variability in order parameter near critical point
+- **Scaling Behavior**: How the transition width scales with system parameters
+
+#### Experimental Questions:
+1. What happens when all oscillators have identical natural frequencies?
+2. How does the critical coupling change with frequency distribution width?
+3. Can you identify the critical coupling from the steepest part of the bifurcation curve?
+4. How do finite-size fluctuations affect the transition?
+
+### TIPS: Getting the Most from the Simulation
+
+#### Best Practices:
+1. **Start with 6-oscillator visualization** to understand basic concepts
+2. **Progress to bifurcation analysis** for quantitative understanding
+3. **Compare theoretical predictions** with simulation results
+4. **Explore parameter space systematically**
+5. **Connect to real-world examples** (fireflies, brain networks, power grids)
+
+#### Performance Tips:
+1. **JAX provides significant speedup** - ensure proper installation
+2. **Reduce realizations** for initial exploration, increase for final analysis
+3. **Use appropriate time steps** for numerical stability
+4. **Monitor convergence** of statistical averages
+
+### (FOR FUTURE USE:) Notes for Instructor and TAs
+
+#### Pre-Class Preparation:
+- **Test JAX installation** on lab computers - can be tricky on some systems
+- **Prepare parameter sets** that demonstrate key physics concepts
+- **Have backup NumPy versions** ready if JAX installation fails
+- **Review synchronization theory** and critical phenomena concepts
+
+#### Teaching Strategies:
+- **Start with 6-oscillator demo** - intuitive visualization of synchronization
+- **Connect to everyday examples** - metronomes, fireflies, applause
+- **Emphasize critical phenomena** - universal behavior near transitions
+- **Show real-world applications** - power grids, neural networks, biological systems
+- **Link to statistical physics** - order parameters, phase transitions
+
+#### Common Student Difficulties:
+- **JAX installation issues** - provide alternative NumPy implementations
+- **Complex number interpretation** - explain order parameter calculation
+- **Statistical averaging concept** - emphasize why multiple realizations are needed
+- **Critical point identification** - help students recognize sharp transitions
+- **Physics vs mathematics** - connect abstract model to real phenomena
+
+#### Extension Activities:
+- **Network topology variations** - implement small-world, scale-free networks
+- **Second-order Kuramoto model** - include oscillator inertia
+- **Experimental data analysis** - analyze real synchronization data
+- **Chimera states** - explore partially synchronized states
+- **Adaptive networks** - coupling strengths that evolve over time
+
+#### Assessment Ideas:
+- **Parameter prediction exercises** - "What happens if all frequencies are identical?"
+- **Critical coupling estimation** - have students identify K_c from plots
+- **Real-world connection tasks** - identify systems exhibiting Kuramoto-like behavior
+- **Scaling analysis** - study how results change with system size
+- **Numerical experiments** - design and execute parameter studies
+
+#### Technical Notes:
+- **JAX performance benefits** - significant speedup for large systems
+- **Numerical precision** - JAX enables high-precision calculations
+- **Random number generation** - JAX uses different RNG approach than NumPy
+- **Compilation overhead** - first JAX run may be slower due to JIT compilation
+- **Memory considerations** - large systems may require significant RAM
+
+#### Pedagogical Connections:
+- **Statistical physics**: Order parameters, phase transitions, critical phenomena
+- **Complex systems**: Emergence, collective behavior, self-organization
+- **Nonlinear dynamics**: Bifurcations, stability analysis, synchronization
+- **Network science**: Coupled oscillators, complex networks, spreading phenomena
+- **Applications**: Neuroscience, ecology, engineering, social systems
+
+---
+
 ## July 1st -- Four-Mass System Normal Modes Analysis (similar to below)
 ## June 30th -- Three-Mass System Normal Modes Analysis
 
